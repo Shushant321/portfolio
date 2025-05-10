@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Col, Row, Alert } from "react-bootstrap";
 import emailjs from '@emailjs/browser';
 
@@ -10,7 +10,9 @@ export const Newsletter = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!email || email.indexOf("@") === -1) {
+    const trimmedEmail = email.trim();
+
+    if (!trimmedEmail || trimmedEmail.indexOf("@") === -1) {
       setStatus("error");
       setMessage("Please enter a valid email.");
       return;
@@ -21,7 +23,7 @@ export const Newsletter = () => {
     emailjs.send(
       "service_fgwg30u",       // ✅ Your EmailJS service ID
       "template_z1mb9ao",      // ✅ Your EmailJS template ID
-      { user_email: email },   // ✅ Template variable
+      { user_email: trimmedEmail },   // ✅ Template variable
       "iwahsJ5vvM1v8J_FY"      // ✅ Your public key
     )
     .then(() => {
@@ -35,6 +37,18 @@ export const Newsletter = () => {
     });
   };
 
+  // Auto clear alert after 5 seconds
+  useEffect(() => {
+    if (status) {
+      const timer = setTimeout(() => {
+        setStatus('');
+        setMessage('');
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
+
   return (
     <Col lg={12}>
       <div className="newsletter-bx wow slideInUp">
@@ -47,14 +61,30 @@ export const Newsletter = () => {
           </Col>
           <Col md={6} xl={7}>
             <form onSubmit={handleSubmit}>
-              <div className="new-email-bx">
+              <div className="new-email-bx" style={{ display: 'flex', gap: '10px' }}>
                 <input
                   value={email}
                   type="email"
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Email Address"
+                  disabled={status === 'sending'}
+                  style={{ flex: 1, padding: '10px', borderRadius: '8px', border: '1px solid #ccc' }}
                 />
-                <button type="submit">Submit</button>
+                <button
+                  type="submit"
+                  disabled={status === 'sending'}
+                  style={{
+                    padding: '10px 20px',
+                    borderRadius: '8px',
+                    border: 'none',
+                    background: 'linear-gradient(to right, #a445b2, #4526b1)',
+                    color: 'white',
+                    fontWeight: 'bold',
+                    cursor: status === 'sending' ? 'not-allowed' : 'pointer',
+                  }}
+                >
+                  {status === 'sending' ? 'Sending...' : 'Submit'}
+                </button>
               </div>
             </form>
           </Col>

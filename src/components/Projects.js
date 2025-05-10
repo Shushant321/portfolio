@@ -1,5 +1,11 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
+import projImg01 from "../assets/img/wan-1.png";
+import projImg02 from "../assets/img/wan-2.png";
+import projImg03 from "../assets/img/wan-3.png";
+import projImg04 from "../assets/img/wan-4.png";
+import projImg05 from "../assets/img/wan-5.png";
+import projImg06 from "../assets/img/wan-6.png";
 import projImg1 from "../assets/img/ecom-1.png";
 import projImg2 from "../assets/img/ecom-2.png";
 import projImg3 from "../assets/img/ecom-3.png";
@@ -12,9 +18,6 @@ import projImg33 from "../assets/img/todo-3.png";
 import projImg44 from "../assets/img/todo-4.png";
 import projImg55 from "../assets/img/todo-5.png";
 import projImg66 from "../assets/img/todo-6.png";
-import projImg111 from "../assets/img/cc-1.png";
-import projImg222 from "../assets/img/cc-2.png";
-import projImg333 from "../assets/img/cc-3.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -24,6 +27,39 @@ export const Projects = () => {
   const [activeTab, setActiveTab] = useState("first");
 
   const projects = [
+    {
+      title: "Wanderlust",
+      description: "Rental Listing Platform",
+      imgUrl: projImg01,
+    },
+    {
+      title: "Wanderlust",
+      description: "Rental Listing Platform",
+      imgUrl: projImg02,
+    },
+    {
+      title: "Wanderlust",
+      description: "Rental Listing Platform",
+      imgUrl: projImg03,
+    },
+    {
+      title: "Wanderlust",
+      description: "Rental Listing Platform",
+      imgUrl: projImg04,
+    },
+    {
+      title: "Wanderlust",
+      description: "Rental Listing Platform",
+      imgUrl: projImg05,
+    },
+    {
+      title: "Wanderlust",
+      description: "Rental Listing Platform",
+      imgUrl: projImg06,
+    },
+  ];
+
+  const otherProjects = [
     {
       title: "E-Commerce Website",
       description: "Design & Development",
@@ -56,7 +92,7 @@ export const Projects = () => {
     },
   ];
 
-  const otherProjects = [
+  const extraProjects = [
     {
       title: "Todo App",
       description: "React + LocalStorage",
@@ -89,24 +125,6 @@ export const Projects = () => {
     },
   ];
 
-  const extraProjects = [
-    {
-      title: "Currency-Converter",
-      description: "Currency Swap",
-      imgUrl: projImg111,
-    },
-    {
-      title: "Currency-Converter",
-      description: "Currency Swap",
-      imgUrl: projImg222,
-    },
-    {
-      title: "Currency-Converter",
-      description: "Currency Swap",
-      imgUrl: projImg333,
-    },
-  ];
-
   return (
     <section className="project" id="projects">
       <Container>
@@ -118,9 +136,9 @@ export const Projects = () => {
                   <h2>Projects</h2>
 
                   <p>
-                    {activeTab === "first" && "A responsive shopping website that allows users to browse, search, and purchase products. Features include : Product listing using live API data, Add to Cart functionality with animated UI, Protected Routes, Login & Register with localStorage and Used Technologies in this project React.js, JavaScript, CSS"}
-                    {activeTab === "second" && "A web-based task management application that allows users to add, delete, and mark tasks as completed. Features include : Interactive UI with real-time updates ,Task prioritization feature ,Responsive design and Used Technologies in this project React.js, JavaScript, CSS"}
-                    {activeTab === "third" && "A simple currency conversion tool that fetches real-time exchange rates. Features include :  Fetches live currency exchange rates using API ,User-friendly dropdown selection for different currencies , Displays converted currency dynamically, and Used Technologies in this project JavaScript, HTML, CSS, Fetch API"}
+                    {activeTab === "first" && "A full-stack rental listing web application where users can explore, list, and book vacation rentals. Built with the MERN-style stack using Node.js, Express, MongoDB, and EJS. Features include CRUD operations, image uploads with Cloudinary, user authentication with Passport.js, and interactive maps via Mapbox. Designed a fully responsive UI with Bootstrap and followed MVC architecture with RESTful routing. Deployed on Render with MongoDB Atlas."}
+                    {activeTab === "second" && "A responsive shopping website that allows users to browse, search, and purchase products. Features include : Product listing using live API data, Add to Cart functionality with animated UI, Protected Routes, Login & Register with localStorage and Used Technologies in this project React.js, JavaScript, CSS"}
+                    {activeTab === "third" && "A web-based task management application that allows users to add, delete, and mark tasks as completed. Features include : Interactive UI with real-time updates ,Task prioritization feature ,Responsive design and Used Technologies in this project React.js, JavaScript, CSS"}
                   </p>
 
                   <Tab.Container id="projects-tabs" activeKey={activeTab} onSelect={(k) => setActiveTab(k)}>
