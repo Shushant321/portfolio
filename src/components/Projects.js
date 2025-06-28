@@ -6,18 +6,18 @@ import projImg03 from "../assets/img/wan-3.png";
 import projImg04 from "../assets/img/wan-4.png";
 import projImg05 from "../assets/img/wan-5.png";
 import projImg06 from "../assets/img/wan-6.png";
-import projImg1 from "../assets/img/ecom-1.png";
-import projImg2 from "../assets/img/ecom-2.png";
-import projImg3 from "../assets/img/ecom-3.png";
-import projImg4 from "../assets/img/ecom-4.png";
-import projImg5 from "../assets/img/ecom-5.png";
-import projImg6 from "../assets/img/ecom-6.png";
-import projImg11 from "../assets/img/todo-1.png";
-import projImg22 from "../assets/img/todo-2.png";
-import projImg33 from "../assets/img/todo-3.png";
-import projImg44 from "../assets/img/todo-4.png";
-import projImg55 from "../assets/img/todo-5.png";
-import projImg66 from "../assets/img/todo-6.png";
+import projImg11 from "../assets/img/ecom-1.png";
+import projImg22 from "../assets/img/ecom-2.png";
+import projImg33 from "../assets/img/ecom-3.png";
+import projImg44 from "../assets/img/ecom-4.png";
+import projImg55 from "../assets/img/ecom-5.png";
+import projImg66 from "../assets/img/ecom-6.png";
+import projImg1 from "../assets/img/lx1.png";
+import projImg2 from "../assets/img/lx2.png";
+import projImg3 from "../assets/img/lx3.png";
+import projImg4 from "../assets/img/lx4.png";
+import projImg5 from "../assets/img/lx5.png";
+import projImg6 from "../assets/img/lx6.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -30,97 +30,109 @@ export const Projects = () => {
     {
       title: "Wanderlust",
       description: "Rental Listing Platform",
+      link:"https://wanderlust-87b0.onrender.com/listings",
       imgUrl: projImg01,
     },
     {
       title: "Wanderlust",
       description: "Rental Listing Platform",
+      link:"https://wanderlust-87b0.onrender.com/listings",
       imgUrl: projImg02,
     },
     {
       title: "Wanderlust",
       description: "Rental Listing Platform",
+      link:"https://wanderlust-87b0.onrender.com/listings",
       imgUrl: projImg03,
     },
     {
       title: "Wanderlust",
       description: "Rental Listing Platform",
+      link:"https://wanderlust-87b0.onrender.com/listings",
       imgUrl: projImg04,
     },
     {
       title: "Wanderlust",
       description: "Rental Listing Platform",
+      link:"https://wanderlust-87b0.onrender.com/listings",
       imgUrl: projImg05,
     },
     {
       title: "Wanderlust",
       description: "Rental Listing Platform",
+      link:"https://wanderlust-87b0.onrender.com/listings",
       imgUrl: projImg06,
     },
   ];
 
   const otherProjects = [
     {
-      title: "E-Commerce Website",
-      description: "Design & Development",
+      title: "Lexora Capital",
+      description: "For Loans & Investments",
+      link:"https://lexoracapital.onrender.com/",
       imgUrl: projImg1,
     },
     {
-      title: "E-Commerce Website",
-      description: "Design & Development",
+      title: "Lexora Capital",
+      description: "For Loans & Investments",
+      link:"https://lexoracapital.onrender.com/",
       imgUrl: projImg2,
     },
     {
-      title: "E-Commerce Website",
-      description: "Design & Development",
+      title: "Lexora Capital",
+      description: "For Loans & Investments",
+      link:"https://lexoracapital.onrender.com/",
       imgUrl: projImg3,
     },
     {
-      title: "E-Commerce Website",
-      description: "Design & Development",
+      title: "Lexora Capital",
+      description: "For Loans & Investments",
+      link:"https://lexoracapital.onrender.com/",
       imgUrl: projImg4,
     },
     {
-      title: "E-Commerce Website",
-      description: "Design & Development",
+      title: "Lexora Capital",
+      description: "For Loans & Investments",
+      link:"https://lexoracapital.onrender.com/",
       imgUrl: projImg5,
     },
     {
-      title: "E-Commerce Website",
-      description: "Design & Development",
+      title: "Lexora Capital",
+      description: "For Loans & Investments",
+      link:"https://lexoracapital.onrender.com/",
       imgUrl: projImg6,
     },
   ];
 
   const extraProjects = [
     {
-      title: "Todo App",
-      description: "React + LocalStorage",
+      title: "E-Commerce Website",
+      description: "Design & Development",
       imgUrl: projImg11,
     },
     {
-      title: "Todo App",
-      description: "React + LocalStorage",
+      title: "E-Commerce Website",
+      description: "Design & Development",
       imgUrl: projImg22,
     },
     {
-      title: "Todo App",
-      description: "React + LocalStorage",
+      title: "E-Commerce Website",
+      description: "Design & Development",
       imgUrl: projImg33,
     },
     {
-      title: "Todo App",
-      description: "React + LocalStorage",
+      title: "E-Commerce Website",
+      description: "Design & Development",
       imgUrl: projImg44,
     },
     {
-      title: "Todo App",
-      description: "React + LocalStorage",
+      title: "E-Commerce Website",
+      description: "Design & Development",
       imgUrl: projImg55,
     },
     {
-      title: "Todo App",
-      description: "React + LocalStorage",
+      title: "E-Commerce Website",
+      description: "Design & Development",
       imgUrl: projImg66,
     },
   ];
@@ -137,8 +149,8 @@ export const Projects = () => {
 
                   <p>
                     {activeTab === "first" && "A full-stack rental listing web application where users can explore, list, and book vacation rentals. Built with the MERN-style stack using Node.js, Express, MongoDB, and EJS. Features include CRUD operations, image uploads with Cloudinary, user authentication with Passport.js, and interactive maps via Mapbox. Designed a fully responsive UI with Bootstrap and followed MVC architecture with RESTful routing. Deployed on Render with MongoDB Atlas."}
-                    {activeTab === "second" && "A responsive shopping website that allows users to browse, search, and purchase products. Features include : Product listing using live API data, Add to Cart functionality with animated UI, Protected Routes, Login & Register with localStorage and Used Technologies in this project React.js, JavaScript, CSS"}
-                    {activeTab === "third" && "A web-based task management application that allows users to add, delete, and mark tasks as completed. Features include : Interactive UI with real-time updates ,Task prioritization feature ,Responsive design and Used Technologies in this project React.js, JavaScript, CSS"}
+                    {activeTab === "second" && "A financial services web application that provides loan and investment solutions. Developed using React.js, Node.js, Express.js, and MongoDB. Features include user authentication, loan calculators, investment tracking, and a responsive design. Implemented RESTful APIs for data management and integrated third-party services for payment processing. The application is designed to be user-friendly with a modern UI using Tailwind CSS."}
+                    {activeTab === "third" && "A responsive shopping website that allows users to browse, search, and purchase products. Features include : Product listing using live API data, Add to Cart functionality with animated UI, Protected Routes, Login & Register with localStorage and Used Technologies in this project React.js, JavaScript, CSS"}
                   </p>
 
                   <Tab.Container id="projects-tabs" activeKey={activeTab} onSelect={(k) => setActiveTab(k)}>
