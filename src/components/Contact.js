@@ -3,7 +3,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import contactImg from "../assets/img/contact-img.svg";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
-import emailjs from "emailjs-com";
 
 export const Contact = () => {
   const formInitialDetails = {
@@ -29,25 +28,21 @@ export const Contact = () => {
     e.preventDefault();
     setButtonText("Sending...");
 
-    const templateParams = {
-      from_name: `${formDetails.firstName} ${formDetails.lastName}`,
-      from_email: formDetails.email,
-      phone: formDetails.phone,
-      message: formDetails.message,
-    };
-
     try {
-      await emailjs.send(
-        "service_fgwg30u",      // ✅ your service ID
-        "template_wqz2zj4",     // ✅ your template ID
-        templateParams,
-        "iwahsJ5vvM1v8J_FY"     // ✅ your public key
-      );
+      const response = await fetch("http://localhost:5000/Contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formDetails),
+      });
 
-      setStatus({ success: true, message: "Message sent successfully!" });
-      setFormDetails(formInitialDetails);
+      if (response.ok) {
+        setStatus({ success: true, message: "Message sent successfully!" });
+        setFormDetails(formInitialDetails);
+      } else {
+        throw new Error("Failed to send message");
+      }
     } catch (error) {
-      console.error("EmailJS Error:", error);
+      console.error("SMTP send error:", error);
       setStatus({ success: false, message: "Something went wrong, please try again later." });
     }
 
