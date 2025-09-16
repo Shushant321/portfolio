@@ -8,8 +8,12 @@ const app = express();
 
 
 app.use(cors({
-  origin: "http://localhost:3000" 
+  origin: [
+    "http://localhost:3000",
+    "https://portfolio-shushi.netlify.app"
+  ]
 }));
+
 
 app.use(express.json());
 app.use("/", router);
