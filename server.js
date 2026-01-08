@@ -1,4 +1,4 @@
-require('dotenv').config(); // dotenv को require करें
+require('dotenv').config();
 const express = require("express");
 const router = express.Router();
 const cors = require("cors");
@@ -6,7 +6,7 @@ const nodemailer = require("nodemailer");
 
 const app = express();
 
-
+// CORS
 app.use(cors({
   origin: [
     "http://localhost:3000",
@@ -14,18 +14,21 @@ app.use(cors({
   ]
 }));
 
-
 app.use(express.json());
 app.use("/", router);
 
-app.listen(5000, () => console.log("Server Running on port 5000"));
+// ✅ Render ke liye PORT env se lo, 5000 fallback
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log("Server Running on port " + PORT));
 
-// SMTP transporter setup with environment variables
+// ✅ Gmail SMTP ko host + port ke saath try karo
 const contactEmail = nodemailer.createTransport({
-  service: 'gmail',
+  host: "smtp.gmail.com",
+  port: 587,          // agar issue aaye to 465 + secure: true try kar sakte ho
+  secure: false,      // 587 -> false, 465 -> true
   auth: {
-    user: process.env.EMAIL_USER,      
-    pass: process.env.EMAIL_PASS      
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
   }
 });
 
@@ -42,8 +45,8 @@ router.post("/contact", (req, res) => {
   const name = `${firstName} ${lastName}`.trim();
 
   const mail = {
-    from: process.env.EMAIL_USER,   // sender email address
-    to: process.env.EMAIL_USER,     // receiver email address, खुद का email या जैसा चाहें
+    from: process.env.EMAIL_USER,
+    to: process.env.EMAIL_USER,
     subject: "Contact Form Submission - Portfolio",
     html: `
       <p><strong>Name:</strong> ${name}</p>
