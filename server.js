@@ -23,9 +23,9 @@ app.listen(PORT, () => console.log("Server Running on port " + PORT));
 
 // ✅ Gmail SMTP ko host + port ke saath try karo
 const contactEmail = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,          // agar issue aaye to 465 + secure: true try kar sakte ho
-  secure: false,      // 587 -> false, 465 -> true
+  host: "sandbox.smtp.mailtrap.io",
+  port: 587,        // screenshot me jo port dikh raha hai wo use karo
+  secure: false,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
